@@ -1,11 +1,14 @@
 package com.example.githubactiondemo
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import androidx.activity.viewModels
+import com.example.githubactiondemo.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+class MainActivity : BaseAppCompatActivity<ActivityMainBinding, MainViewModel>() {
+    override val viewModel: MainViewModel by viewModels()
+
+    override fun initialize() {
+       binding.data = "hello"
     }
+
+    override fun getLayoutResId() = R.layout.activity_main
 }
